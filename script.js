@@ -116,11 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.stat-number span[data-target]').forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
             const current = parseInt(stat.textContent) || 0;
-            const increment = target / 20;
+            // Slower increment (changed from 20 to 50 for smoother animation)
+            const increment = target / 50;
             
             if (current < target) {
                 stat.textContent = Math.ceil(current + increment);
-                setTimeout(() => updateStats(), 50);
+                // Increased timeout from 50ms to 100ms for slower animation
+                setTimeout(() => updateStats(), 100);
             } else {
                 stat.textContent = target;
             }
