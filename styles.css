@@ -1,0 +1,6886 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Dark Theme Variables */
+    --dark-blue: #1a1025;
+    --medium-blue: #2d1b3d;
+    --light-blue: #ff69b4;
+    --accent-blue: #9c27b0;
+    --gradient-blue: linear-gradient(135deg, #ff69b4 0%, #9c27b0 100%);
+    --text-primary: #ffffff;
+    --text-secondary: #b8a8c5;
+    --text-accent: #e6e1f1;
+    --bg-primary: var(--dark-blue);
+    --bg-secondary: var(--medium-blue);
+    --bg-primary-rgb: 26, 16, 37;
+    --bg-secondary-rgb: 45, 27, 61;
+    --card-bg: linear-gradient(145deg, var(--medium-blue), var(--dark-blue));
+    --border-color: rgba(255, 105, 180, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --heading-font: 'Space Grotesk', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+    --dark-blue: #ffffff;
+    --medium-blue: #faf5ff;
+    --light-blue: #9c27b0;
+    --accent-blue: #ff69b4;
+    --gradient-blue: linear-gradient(135deg, #9c27b0 0%, #ff69b4 100%);
+    --text-primary: #2d1b3d;
+    --text-secondary: #6b4d8a;
+    --text-accent: #2d1b3d;
+    --bg-primary: #ffffff;
+    --bg-secondary: #faf5ff;
+    --bg-primary-rgb: 255, 255, 255;
+    --bg-secondary-rgb: 250, 245, 255;
+    --card-bg: linear-gradient(145deg, #ffffff, #faf5ff);
+    --border-color: rgba(156, 39, 176, 0.1);
+    --shadow-color: rgba(156, 39, 176, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--accent-blue);
+    width: 45px;
+    height: 45px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--bg-secondary);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 50px;
+}
+
+.header-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 15px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--light-blue);
+}
+
+/* Hero Section */
+.hero {
+    padding: 180px 0 100px;
+    text-align: center;
+    position: relative;
+    background-color: var(--bg-primary);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: var(--gradient-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+/* Features Section */
+.features {
+    padding: 100px 0;
+    background-color: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: 2.8rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    animation: fadeIn 1s ease-out;
+}
+
+.features h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--gradient-blue);
+    border-radius: 3px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2.5rem;
+    background: var(--card-bg);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.feature-card i {
+    font-size: 3.5rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 100px 0;
+}
+
+.pricing h2 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: 2.8rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.plan-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.plan-card.popular {
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.popular-tag {
+    background: var(--gradient-blue);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.plan-card h3 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.price span {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.plan-card ul {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.plan-card ul li {
+    margin: 1.2rem 0;
+    color: var(--text-accent);
+    font-size: 1.1rem;
+}
+
+.plan-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--gradient-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.plan-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-secondary);
+    padding: 50px 0 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--accent-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 0.5rem 0;
+}
+
+.footer-section p {
+    color: var(--text-accent);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.footer-section a {
+    color: var(--text-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.footer-section a:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(136, 146, 176, 0.2);
+    color: var(--text-accent);
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    margin: 2px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5rem 2rem 2rem;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-right: 1px solid var(--border-color);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-links li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-links li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-links li:nth-child(5) { transition-delay: 0.5s; }
+    .nav-links li:nth-child(6) { transition-delay: 0.6s; }
+
+    .nav-links a {
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1002;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-primary);
+        margin: 2px 0;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+    /* Ensure navbar stays on top */
+    .navbar {
+        background-color: var(--bg-primary);
+        z-index: 1000;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        padding: 1rem 0;
+    }
+
+    /* Status dot adjustments */
+    .server-status {
+        z-index: 1002;
+        position: relative;
+        margin-right: 1rem;
+    }
+
+    /* Theme toggle adjustments for mobile */
+    .theme-toggle {
+        position: relative;
+        top: unset;
+        right: unset;
+        margin-right: 0.5rem;
+        z-index: 1002;
+    }
+
+    .logo {
+        z-index: 1002;
+    }
+
+    /* Container adjustments */
+    .navbar .container {
+        padding: 0 1rem;
+    }
+
+    .hero {
+        padding: 120px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .feature-grid, .plan-grid, .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+/* Tablet Responsive Design */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .feature-grid, .plan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Loading Animation */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--light-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced Animations for Elements */
+.hero h1, .hero p {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.feature-card, .plan-card, .team-member {
+    animation: scaleIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Enhanced Hover Effects */
+.feature-card:hover, .plan-card:hover, .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* AOS Integration */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Enhanced Button Animations */
+.cta-button, .plan-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before, .plan-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before, .plan-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Enhanced Card Designs */
+.feature-card, .plan-card, .team-member {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Responsive Typography */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .plan-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar, .hero, .footer {
+        display: none;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 80px 0;
+    background-color: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-blue);
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.stat-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--heading-font);
+    gap: 5px;
+}
+
+.stat-number span {
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-plus,
+.stat-percent,
+.stat-time {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-plus,
+    .stat-percent,
+    .stat-time {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+    }
+}
+
+/* Team Section */
+.team-section {
+    padding: 100px 0;
+    background-color: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-blue);
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.team-section h2 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: 2.8rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.team-category {
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.team-category-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.team-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--gradient-blue);
+    border-radius: 3px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 1rem 0 0.5rem;
+}
+
+.team-member .role {
+    color: var(--accent-blue);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Remove these admin-related styles */
+.messages-container,
+.message-card,
+.message-subject,
+.loading,
+.no-messages,
+.refresh-btn {
+    display: none;
+}
+
+/* Mobile Menu Animation */
+.nav-links {
+    transition: left 0.3s ease;
+}
+
+.hamburger span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Loading Animation (keep this for UX) */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--light-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove animation-related elements */
+.mouse-trail,
+.parallax,
+[data-scroll],
+.animated-bg,
+.float-animation {
+    display: none;
+}
+
+/* Remove animation keyframes */
+@keyframes float,
+@keyframes slideInLeft,
+@keyframes slideInRight,
+@keyframes zoomIn,
+@keyframes gradientBG {
+    /* Remove these animations */
+}
+
+/* Mobile Menu Animation */
+.nav-links {
+    transition: left 0.3s ease;
+}
+
+.hamburger span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Loading Animation (keep this for UX) */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--light-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Basic Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple Fade for Page Loader */
+.page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
